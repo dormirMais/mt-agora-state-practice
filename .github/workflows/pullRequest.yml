@@ -1,11 +1,13 @@
 name: Bare Minimum Requirements
 
+//# 언제 job을 작동시킬지
 on: [push, pull_request]
 
+//# 어떤 job을 할지
 jobs:
   test:
-    runs-on: ubuntu-latest
-    steps:
+    runs-on: ubuntu-latest  //어떤 os에서 작동할지 지정.
+    steps:   //step의 useses 어떤 액션을 사용할지 지정함. 
       - uses: actions/checkout@v2
       - name: Bare Minimum Requirements
         uses: actions/setup-node@v1
@@ -13,3 +15,4 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm test
+      - run: ls -al
